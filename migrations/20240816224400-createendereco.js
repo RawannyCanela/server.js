@@ -1,6 +1,6 @@
 'use strict';
 
-const { STRING, Sequelize } = require('sequelize');
+const { Sequelize } = require('../models');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -9,19 +9,18 @@ module.exports = {
       Id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement:true,
-        allowNull: false,
+        autoIncrement: true,
+        allowNull: false
       },
       Cep: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
-      Logradouro: {
+      },Logradouro: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       Numero: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       Complemento: {
@@ -41,9 +40,11 @@ module.exports = {
       },
       MunicipioIBGE: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
+
     });
+    
   },
 
   down: async (queryInterface, Sequelize) => {

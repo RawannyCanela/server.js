@@ -1,6 +1,9 @@
-const { Model, Datatypes } = require('sequelize');
+const { Sequelize } = require('sequelize')
+const sequelize = require('../config/database'); // caminho correto
 
-class Endereco extends Model {}
+const {Model, DataTypes } = require('sequelize')
+
+class Endereco extends Model{}
 
 Endereco.init({
     Id: {
@@ -17,7 +20,7 @@ Endereco.init({
         allowNull: false,
     },
     Numero: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     Complemento: {
@@ -39,11 +42,12 @@ Endereco.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-}, {
-    sequelize,
-    modelName: 'Endereco',
-    tableName: 'enderecos', //Define o nome da tabela no bd
-    timestamps: true, //Define se quer ou não os campos createAt e updateAt
-});
 
+}, {
+    Sequelize,
+    modelName: 'Endereco',
+    tableName: 'enderecos',
+    timestamps: true,
+
+});
 module.exports = Endereco;
