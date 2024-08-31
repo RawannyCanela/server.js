@@ -1,15 +1,12 @@
 const { Sequelize } = require('sequelize');
 
-
-module.exports = {
-    dialect: 'postgres',
+const sequelize = new Sequelize('apinode', 'postgres', 'vinimendes', {
     host: 'localhost',
-    username: 'usuario',
-    password: 'senha',
-    database: 'apinode',
+    dialect: 'postgres',
     define: {
         timestamps: true,
-        underscored: true
-    }
+        underscored: true,
+    },
+});
 
-}
+module.exports = sequelize;
